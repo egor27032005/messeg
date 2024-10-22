@@ -45,7 +45,7 @@ class MessengerApp:
         text=read.read_file_to_list(self.current_chat+".txt")
         self.text_area.config(state='normal')
         self.text_area.delete("1.0", tk.END)
-        self.text_area.insert(tk.END, f"Открыт {self.current_chat}")
+        self.text_area.insert(tk.END, f"Открыт {self.current_chat}\n")
         if(len(text)>0):
             if text[0].startswith("\n"):
                 text[0] = text[0][1:]
@@ -56,7 +56,7 @@ class MessengerApp:
     def send_message(self):
         if self.current_chat:
             message = self.message_entry.get()
-            read.write_file(self.current_chat+".txt",self.name+": "+message)
+            read.write_file(self.current_chat+".txt", self.name+": "+message)
             if message:
                 self.text_area.config(state='normal')
                 self.text_area.insert(tk.END, f"{self.name}: {message}\n")

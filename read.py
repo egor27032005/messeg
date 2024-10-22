@@ -22,6 +22,8 @@ def write_users(us):
 def read_file_to_list(filename):
     with open(filename, 'r', encoding='utf-8') as file:
         lines = file.readlines()
+        if lines and lines[0].strip() == '':
+            lines = lines[1:]
     return [line.strip() for line in lines]
 
 def write_file(filename,text):
